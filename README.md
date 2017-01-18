@@ -54,6 +54,11 @@ There's a few magic with the watson reply that we will parse
 * any embedded url in the response will set the redirectURL
 
 
+# Watson URL
+
+http://www.ibm.com/watson/developercloud/conversation/api/v1/?node#
+
+
 # Tutorial that I copy and paste code from
 
 Cause I'm a l33t hacker!
