@@ -2,12 +2,17 @@
   "name": "merlin-clippy-api",
   "scripts": {
     "start": "node app.js",
-    "deploy": "git push heroku master"
+    "deploy": "git push heroku master",
+    "start-dev": "nodemon app.js",
+    "test": "./test.sh"
   },
   "dependencies": {
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
     "prompt-sync": "^4.1.4",
     "watson-developer-cloud": "^2.15.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

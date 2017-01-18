@@ -20,6 +20,10 @@ router.get('/talk', function(req, res) {
     res.json({ message: 'hooray! lets get wizard watson to hack!' });
 });
 
+router.post('/talk', function(req, res) {
+    res.json({ message: 'hooray! posting' });
+});
+
 // more routes for our API will happen here
 
 
