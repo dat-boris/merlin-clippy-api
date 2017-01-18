@@ -39,7 +39,7 @@ function processResponse(err, response) {
 
   // Display the output from dialog, if any.
   if (response.output.text.length != 0) {
-      console.log(response.output.text[0]);
+      console.log(response.output);
   }
 
   // Prompt for the next round of input.
