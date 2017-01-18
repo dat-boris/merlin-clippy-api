@@ -40,7 +40,8 @@ POST reply:
 ```
 {
     'source': 'hello!',
-    'response': 'hello fellow wizard!'
+    'response': 'hello fellow wizard!',
+    'redirect_url': 'http://www.google.com'
 }
 ```
 
