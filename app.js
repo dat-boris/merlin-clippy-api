@@ -39,13 +39,14 @@ router.post('/talk', function(req, res) {
 
     watson.ask(
         message,
-        function (responseMessage, context) {
+        function (responseMessage, context, serverResponse) {
             var reply = {
                 source: message,
                 response: responseMessage,
                 context: context
             };
             if (!responseMessage) {
+                console.error('Got error from server', serverResponse);
                 res.json({
                     source: message,
                     response: '....',

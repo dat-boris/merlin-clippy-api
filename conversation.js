@@ -40,7 +40,7 @@ function ask(message, callback, context) {
         callback(response.output.text.join(''), response.context)
         return;
       }
-      callback(null);
+      callback(null, response.context, response);
   })
 }
 
