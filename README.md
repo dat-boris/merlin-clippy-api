@@ -12,8 +12,17 @@ npm i
 node conversation.js
 
 # run the REST server
-node app.js
+npm run start-dev
+
+# Test
+npm run test
+
+# Deploy
+# remember to setup your heroku fella
+npm run deploy
 ```
+
+
 
 
 ## API endpoint
