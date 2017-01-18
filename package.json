@@ -1,6 +1,12 @@
 {
-  "name": "watson-conversation",
+  "name": "merlin-clippy-api",
+  "scripts": {
+    "start": "node app.js",
+    "deploy": "git push heroku master"
+  },
   "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
     "prompt-sync": "^4.1.4",
     "watson-developer-cloud": "^2.15.2"
   }
