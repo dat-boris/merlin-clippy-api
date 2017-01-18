@@ -18,33 +18,44 @@ var conversation = new ConversationV1({
 });
 
 
-var prompt = require('prompt-sync')();
-// Start conversation with empty message.
-conversation.message({
-
-}, processResponse);
-
-
-// Process the conversation response.
-function processResponse(err, response) {
-  if (err) {
-    console.error(err); // something went wrong
-    return;
-  }
-
-  // If an intent was detected, log it out to the console.
-  if (response.intents.length > 0) {
-    console.log('Detected intent: #' + response.intents[0].intent);
-  }
-
-  // Display the output from dialog, if any.
-  if (response.output.text.length != 0) {
-      console.log(response.output);
-  }
-
-  // Prompt for the next round of input.
-  var newMessageFromUser = prompt('>> ');
+function ask(message, callback) {
   conversation.message({
-    input: { text: newMessageFromUser }
-    }, processResponse)
+    input: { text: message }
+  }, function (err, response) {
+      if (err) {
+        console.error(err.message)
+        throw err;
+      }
+
+      // If an intent was detected, log it out to the console.
+      // if (response.intents.length > 0) {
+      //   console.log('Detected intent: #' + response.intents[0].intent);
+      // }
+
+      // Display the output from dialog, if any.
+      if (response.output.text.length != 0) {
+        callback(response.output.text)
+      } else {
+        callback(null);
+      }
+  })
+}
+
+
+if (!module.parent) {
+  var prompt = require('prompt-sync')();
+  // Start conversation with empty message.
+
+  function processMsg(msg) {
+    if (msg) {
+      console.log(msg + '\n');
+    }
+
+    // Prompt for the next round of input.
+    var newMessageFromUser = prompt('>> ');
+    ask(newMessageFromUser, processMsg);
+  }
+
+  // start the conversation
+  conversation.message('hello', processMsg)
 }
