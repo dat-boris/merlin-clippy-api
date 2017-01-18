@@ -1,7 +1,8 @@
 {
   "name": "merlin-clippy-api",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "deploy": "git push heroku master"
   },
   "dependencies": {
     "body-parser": "^1.16.0",
