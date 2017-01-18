@@ -41,9 +41,17 @@ POST reply:
 {
     'source': 'hello!',
     'response': 'hello fellow wizard!',
-    'redirect_url': 'http://www.google.com'
+    'redirectURL': 'http://www.google.com',
+    'isPDP': false
 }
 ```
+
+### Watson magic
+
+There's a few magic with the watson reply that we will parse
+
+* `product description` will set isPDP true
+* any embedded url in the response will set the redirectURL
 
 
 # Tutorial that I copy and paste code from

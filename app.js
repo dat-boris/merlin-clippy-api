@@ -40,10 +40,19 @@ router.post('/talk', function(req, res) {
     watson.ask(
         message,
         function (responseMessage) {
-            res.json({
+            var reply = {
                 source: message,
                 response: responseMessage
-            });
+            };
+            urlMatches = responseMessage.match(/(https?:\/\/[^\s]+)/)
+            if (urlMatches) {
+                reply.redirectURL = urlMatches[1];
+
+                if (responseMessage.match(/product description/i)) {
+                    reply.isPDP = true;
+                }
+            }
+            res.json(reply);
         }
     )
 });
