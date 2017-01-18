@@ -39,10 +39,11 @@ router.post('/talk', function(req, res) {
 
     watson.ask(
         message,
-        function (responseMessage) {
+        function (responseMessage, context) {
             var reply = {
                 source: message,
-                response: responseMessage
+                response: responseMessage,
+                context: context
             };
             urlMatches = responseMessage.match(/(https?:\/\/[^\s]+)/)
             if (urlMatches) {

@@ -32,7 +32,8 @@ POST /talk
 POST body:
 ```
 {
-    'message': 'hello!'
+    'message': 'hello!',
+    'context' {....}
 }
 ```
 
@@ -42,7 +43,8 @@ POST reply:
     'source': 'hello!',
     'response': 'hello fellow wizard!',
     'redirectURL': 'http://www.google.com',
-    'isPDP': false
+    'isPDP': false,
+    'context' {....}
 }
 ```
 

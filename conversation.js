@@ -18,15 +18,11 @@ var conversation = new ConversationV1({
 });
 
 
-function ask(conversation_id, message, callback) {
-  console.log("Conversation id", conversation_id)
+function ask(message, callback, context) {
   conversation.message({
     input: {
       text: message,
-      context: {
-        conversation_id: conversation_id
-      }
-
+      context: context
     }
   }, function (err, response) {
       if (err) {
@@ -41,7 +37,7 @@ function ask(conversation_id, message, callback) {
 
       // Display the output from dialog, if any.
       if (response.output.text.length != 0) {
-        callback(response.output.text.join(''), response.context.conversation_id)
+        callback(response.output.text.join(''), response.context)
         return;
       }
       callback(null);
@@ -55,16 +51,16 @@ if (!module.parent) {
   var prompt = require('prompt-sync')();
   // Start conversation with empty message.
 
-  function processMsg(msg, conversation_id) {
+  function processMsg(msg, context) {
     if (msg) {
       console.log(msg + '\n');
     }
 
     // Prompt for the next round of input.
     var newMessageFromUser = prompt('>> ');
-    ask(conversation_id, newMessageFromUser, processMsg);
+    ask(newMessageFromUser, processMsg, context);
   }
 
   // start the conversation
-  ask(null, 'hello', processMsg)
+  ask('hello', processMsg);
 }
