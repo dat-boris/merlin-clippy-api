@@ -45,6 +45,14 @@ router.post('/talk', function(req, res) {
                 response: responseMessage,
                 context: context
             };
+            if (!responseMessage) {
+                res.json({
+                    source: message,
+                    response: '....',
+                    context: context
+                })
+                return
+            }
             urlMatches = responseMessage.match(/(https?:\/\/[^\s]+)/)
             if (urlMatches) {
                 reply.redirectURL = urlMatches[1];
