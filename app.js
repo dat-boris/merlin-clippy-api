@@ -2,6 +2,7 @@
 var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
+var watson = require('./conversation.js');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -20,7 +21,20 @@ router.get('/talk', function(req, res) {
 });
 
 router.post('/talk', function(req, res) {
-    res.json({ source: req.body, response: 'I hear you loud and clear! you said '+req.body.message });
+    var message = req.body.message;
+    if (!message) {
+        throw "No message seen!";
+    }
+
+    watson.ask(
+        message,
+        function (responseMessage) {
+            res.json({
+                source: message,
+                response: responseMessage
+            });
+        }
+    )
 });
 
 

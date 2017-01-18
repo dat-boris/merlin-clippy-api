@@ -34,12 +34,15 @@ function ask(message, callback) {
 
       // Display the output from dialog, if any.
       if (response.output.text.length != 0) {
-        callback(response.output.text)
-      } else {
-        callback(null);
+        callback(response.output.text.join(''))
+        return;
       }
+
+      callback(null);
   })
 }
+
+module.exports.ask = ask;
 
 
 if (!module.parent) {
