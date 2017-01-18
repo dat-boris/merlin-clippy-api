@@ -1,0 +1,7 @@
+{
+  "name": "watson-conversation",
+  "dependencies": {
+    "prompt-sync": "^4.1.4",
+    "watson-developer-cloud": "^2.15.2"
+  }
+}
