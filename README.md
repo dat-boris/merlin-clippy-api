@@ -44,6 +44,7 @@ POST reply:
     'response': 'hello fellow wizard!',
     'redirectURL': 'http://www.google.com',
     'isPDP': false,
+    // please pass this in everytime you talk to the API to make conversation sticky
     'context' {....}
 }
 ```
