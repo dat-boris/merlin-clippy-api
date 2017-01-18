@@ -44,6 +44,7 @@ POST reply:
     'response': 'hello fellow wizard!',
     'redirectURL': 'http://www.google.com',
     'isPDP': false,
+    'shouldAddToCart': true,
     // please pass this in everytime you talk to the API to make conversation sticky
     'context' {....}
 }
@@ -55,7 +56,7 @@ There's a few magic with the watson reply that we will parse
 
 * `product description` will set isPDP true
 * any embedded url in the response will set the redirectURL
-
+* `add.*cart` will set `shouldAddToCart` true
 
 # Watson URL
 

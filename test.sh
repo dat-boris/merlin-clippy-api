@@ -8,5 +8,5 @@ curl -H "Content-Type: application/json" -X POST \
 echo
 # looking for something
 curl -H "Content-Type: application/json" -X POST \
-    -d '{"message":"looking for potions"}' http://localhost:3000/talk/
+    -d '{"message":"add to cart"}' http://localhost:3000/talk/
 echo

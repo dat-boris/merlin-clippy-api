@@ -62,6 +62,9 @@ router.post('/talk', function(req, res) {
                     reply.isPDP = true;
                 }
             }
+            if (responseMessage.match(/ad.*cart/i)) {
+                reply.shouldAddToCart = true;
+            }
             res.json(reply);
         }
     )
