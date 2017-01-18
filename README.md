@@ -18,11 +18,20 @@ node app.js
 
 ## API endpoint
 
-/talk
+POST /talk
 
+POST body:
 ```
 {
     'message': 'hello!'
+}
+```
+
+POST reply:
+```
+{
+    'source': 'hello!',
+    'response': 'hello fellow wizard!'
 }
 ```
 

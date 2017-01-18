@@ -24,8 +24,6 @@ router.post('/talk', function(req, res) {
     res.json({ source: req.body, response: 'I hear you loud and clear! you said '+req.body.message });
 });
 
-// more routes for our API will happen here
-
 
 // START THE SERVER
 app.use('/', router);
