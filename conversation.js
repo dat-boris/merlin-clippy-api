@@ -8,6 +8,7 @@
 var ConversationV1 = require('watson-developer-cloud/conversation/v1');
 
 // Set up Conversation service wrapper.
+// XXX: dont hack me please!
 var conversation = new ConversationV1({
   username: 'a6823086-f499-426b-a2ba-8987b4d38e93', // replace with username from service key
   password: 'qMqfoaLt0nXP', // replace with password from service key

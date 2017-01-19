@@ -11,7 +11,7 @@ npm i
 # run the conversion scaffold
 node conversation.js
 
-# run the REST server
+# run the dev server with hot reload
 npm run start-dev
 
 # Test
