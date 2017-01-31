@@ -28,8 +28,8 @@ function ask(message, callback, context) {
     }
   }, function (err, response) {
       if (err) {
-        console.error(JSON.stringify(err))
-        throw JSON.stringify(err);
+        console.error(JSON.stringify(err));
+        callback(null, response.context, response);
       }
 
       // If an intent was detected, log it out to the console.
