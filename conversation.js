@@ -2,19 +2,16 @@
  * Source http://www.ibm.com/watson/developercloud/doc/conversation/develop-app.html
  */
 
-// Example 1: sets up service wrapper, sends initial message, and 
+// Example 1: sets up service wrapper, sends initial message, and
 // receives response.
 
 var ConversationV1 = require('watson-developer-cloud/conversation/v1');
 
 // Set up Conversation service wrapper.
-// XXX: dont hack me please!
 var conversation = new ConversationV1({
-  username: process.env.WATSON_USERNAME, // replace with username from service key
-  password: process.env.WATSON_PASSWORD, // replace with password from service key
-  // I need to grab from the URL?
-  // XXX: https://console.ng.bluemix.net/services/9291282b-758b-4d37-a7c4-60849740e8af?paneId=credentials&ace_config=%7B%22orgGuid%22%3A%22b23fd269-6222-4cba-9bd5-294703b3c04e%22%2C%22spaceGuid%22%3A%22731965c8-7248-4f2c-9c51-6e9dfefedceb%22%2C%22redirect%22%3A%22https%3A%2F%2Fconsole.ng.bluemix.net%2Fdashboard%2Fapps%22%2C%22bluemixUIVersion%22%3A%22Atlas%22%7D
-  path: { workspace_id: process.env.WATSON_WORKSPACE }, // replace with workspace ID
+  username: process.env.WATSON_USERNAME,
+  password: process.env.WATSON_PASSWORD,
+  path: { workspace_id: process.env.WATSON_WORKSPACE },
   version_date: '2016-07-11'
 });
 
@@ -29,7 +26,7 @@ function ask(message, callback, context) {
   }, function (err, response) {
       if (err) {
         console.error(JSON.stringify(err));
-        callback(null, response.context, response);
+        callback(null, {}, null);
       }
 
       // If an intent was detected, log it out to the console.
