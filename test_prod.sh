@@ -5,3 +5,7 @@ echo
 curl -H "Content-Type: application/json" -X POST \
     -d '{"message":"add to cart"}' http://mobify-merlin-clippy.herokuapp.com/talk
 echo
+curl -i -X OPTIONS http://mobify-merlin-clippy.herokuapp.com/talk
+echo
+curl -H "Content-Type: application/json" -X POST \
+    -d '{"message":"add to cart"}' http://mobify-merlin-clippy.herokuapp.com/talk
