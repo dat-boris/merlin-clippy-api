@@ -20,6 +20,7 @@ var conversation = new ConversationV1({
 
 
 function ask(message, callback, context) {
+  console.log("Sending message: '"+message+"'");
   conversation.message({
     input: {
       text: message,
